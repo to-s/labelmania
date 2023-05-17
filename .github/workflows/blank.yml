@@ -5,11 +5,12 @@ on:
     
 jobs:
   build:
+    runs-on: ubuntu-latest
+  
     strategy:
       matrix:
         label: [ ${{ join(github.event.pull_request.labels.*.name, ',') }} ]
 
-    runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: echo ${{ matrix.label }}
