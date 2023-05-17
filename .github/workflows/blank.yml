@@ -1,0 +1,15 @@
+name: Labelmania
+on:
+  pull_request:
+    types: [labeled, unlabeled]
+    
+jobs:
+  build:
+    strategy:
+      matrix:
+        label: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: echo ${{ matrix.label }}
