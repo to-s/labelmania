@@ -10,6 +10,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: echo to matrix putput
+        id: set-matrix
         run: echo "matrix=$( echo [ ${{ join(github.event.pull_request.labels.*.name, ',') }} ] )" >> $GITHUB_OUTPUT
     
   echo:
