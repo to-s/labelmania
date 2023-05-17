@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo
-        run: echo ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: echo [ ${{ join(github.event.pull_request.labels.*.name, ',') }} ]
